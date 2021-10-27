@@ -1,0 +1,26 @@
+#+TITLE: mathparse
+#+STARTUP: nofold
+
+* Description
+
+Mathparse is a small program written in Haskell for parsing mathematical expressions into
+different forms.
+
+It is (read: will be, eventually, maybe), capable of converting expressions into RPN, an AST, and
+evaluating them.
+
+** Current State
+
+- [X] infix -> RPN
+- [ ] infix -> AST
+- [ ] evaluation
+
+Currently, it is also only run through =ghci main.hs=
+
+** Why would you do this?
+
+It sounded fun. /Maybe/ someone will turn out to have a use for it besides.
+
+* License
+
+This software is licensed under the zlib license. See the =LICENSE= file for more information.
