@@ -35,6 +35,8 @@ tokenize ('-' : xs) = minus : tokenize xs
 tokenize xs =
   let term = takeWhile (\x -> isAlphaNum x || x == '.') xs
       rest = drop (length term) xs
-   in case readMaybe term :: Maybe Double of
-        Nothing -> Variable term : tokenize rest
-        Just d -> Number d : tokenize rest
+   in if null term -- TODO: error handling
+        then []
+        else case readMaybe term :: Maybe Double of
+          Nothing -> Variable term : tokenize rest
+          Just d -> Number d : tokenize rest
