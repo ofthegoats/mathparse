@@ -13,6 +13,7 @@ buildRPN tokens = buildRPN' tokens $ Stack []
     buildRPN' [] (Stack s) = s
     buildRPN' (t : ts) s = case t of
       Number _ -> t : buildRPN' ts s
+      Variable _ -> t : buildRPN' ts s
       OpenParen -> buildRPN' ts $ push OpenParen s
       CloseParen -> case pop s of
         (Nothing, _) -> [] -- TODO: error handling
