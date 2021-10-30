@@ -16,7 +16,7 @@ buildRPN tokens = buildRPN' tokens $ Stack []
       Variable _ -> t : buildRPN' ts s
       OpenParen -> buildRPN' ts $ push OpenParen s
       CloseParen -> case pop s of
-        (Nothing, _) -> [] -- TODO: error handling
+        (Nothing, _) -> undefined
         (Just OpenParen, s') -> buildRPN' ts s'
         (Just o', s') -> o' : buildRPN' (t : ts) s'
       Operator o1 preo1 -> case pop s of
